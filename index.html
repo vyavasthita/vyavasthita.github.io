@@ -398,7 +398,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div style="padding: 25px 30px; background: #fff; border-radius: 6px; border-left: 4px solid #2563EB;">
 							<h3 style="color:#1E293B; margin-bottom:5px;"><i class="icon-graduation-cap" style="color:#2563EB; margin-right:10px;"></i>BE / B.Tech / BS</h3>
-							<span style="color:#2563EB; font-weight:600;">Maharishi Arvind Institute of Engineering and Technology</span> <span style="color:#64748B;">&mdash; 2008</span>
+							<span style="color:#2563EB; font-weight:600;">Maharishi Arvind Institute of Engineering and Technology</span> <span style="color:#64748B;">&mdash; 2009</span>
 							<p style="margin-top:10px; color:#475569;">Computer Science &amp; Programming</p>
 						</div>
 					</div>
@@ -426,27 +426,29 @@
 			</div>
 			<div class="choose animate-box">
 				<h2>Contact</h2>
-				<form action="https://formspree.io/f/xyyarqro" method="post">
+				<form id="contact-form" action="https://formspree.io/f/xyyarqro" method="POST">
+					<input type="hidden" name="_subject" value="New message from your portfolio site">
 					<div class="row form-group">
 						<div class="col-md-6">
-							<input type="text" id="fname" class="form-control" placeholder="Your Name" name="name">
+							<input type="text" id="fname" class="form-control" placeholder="Your Name" name="name" required>
 						</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-md-12">
-							<input type="text" id="email" class="form-control" placeholder="Your Email Address"
-								name="email">
+							<input type="email" id="email" class="form-control" placeholder="Your Email Address"
+								name="email" required>
 						</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-md-12">
 							<textarea name="message" id="message" cols="30" rows="10" class="form-control"
-								placeholder="Your Message" name="message"></textarea>
+								placeholder="Your Message" required></textarea>
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Send Message" class="btn btn-primary">
+						<button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
 					</div>
+					<div id="form-status" style="margin-top:10px; display:none;"></div>
 
 				</form>
 			</div>
@@ -475,6 +477,48 @@
 
 		<!-- Main -->
 		<script src="js/main.js"></script>
+
+		<!-- Contact Form AJAX Submit -->
+		<script>
+		(function() {
+			var form = document.getElementById('contact-form');
+			var statusDiv = document.getElementById('form-status');
+			var submitBtn = document.getElementById('submit-btn');
+
+			form.addEventListener('submit', function(e) {
+				e.preventDefault();
+				submitBtn.disabled = true;
+				submitBtn.textContent = 'Sending...';
+				statusDiv.style.display = 'none';
+
+				var data = new FormData(form);
+
+				fetch(form.action, {
+					method: 'POST',
+					body: data,
+					headers: { 'Accept': 'application/json' }
+				}).then(function(response) {
+					if (response.ok) {
+						statusDiv.style.display = 'block';
+						statusDiv.style.color = '#16a34a';
+						statusDiv.textContent = 'Thank you! Your message has been sent.';
+						form.reset();
+					} else {
+						statusDiv.style.display = 'block';
+						statusDiv.style.color = '#dc2626';
+						statusDiv.textContent = 'Oops! Something went wrong. Please try again.';
+					}
+				}).catch(function() {
+					statusDiv.style.display = 'block';
+					statusDiv.style.color = '#dc2626';
+					statusDiv.textContent = 'Oops! Something went wrong. Please try again.';
+				}).finally(function() {
+					submitBtn.disabled = false;
+					submitBtn.textContent = 'Send Message';
+				});
+			});
+		})();
+		</script>
 
 </body>
 
