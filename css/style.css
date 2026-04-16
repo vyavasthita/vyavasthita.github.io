@@ -10,8 +10,139 @@
 * 	Template Style 
 *
 * ======================================================= */
+
+/* ===== Navigation Bar ===== */
+#fh5co-nav.navbar-default {
+  background: rgba(255, 255, 255, 0.97);
+  border: none;
+  border-bottom: 1px solid #E2E8F0;
+  margin-bottom: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  min-height: 56px;
+}
+#fh5co-nav .navbar-brand {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 22px;
+  color: #2563EB;
+  padding: 15px 15px;
+}
+#fh5co-nav .navbar-brand:hover {
+  color: #1d4ed8;
+}
+#fh5co-nav .navbar-nav > li > a {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 18px 14px;
+  transition: color 0.3s;
+}
+#fh5co-nav .navbar-nav > li > a:hover,
+#fh5co-nav .navbar-nav > li > a:focus {
+  color: #2563EB;
+  background: transparent;
+}
+#fh5co-nav .navbar-toggle {
+  border-color: #CBD5E1;
+}
+#fh5co-nav .navbar-toggle .icon-bar {
+  background-color: #334155;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-nav .navbar-nav > li > a {
+    padding: 12px 15px;
+  }
+}
+
+/* ===== Project Cards ===== */
+.project-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 25px;
+  transition: box-shadow 0.3s, transform 0.2s;
+  height: 100%;
+  min-height: 200px;
+}
+.project-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+.project-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.project-card-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.project-card-header h3 a {
+  color: #1E293B;
+  text-decoration: none;
+}
+.project-card-header h3 a:hover {
+  color: #2563EB;
+}
+.project-card p {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+.project-status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.project-status.active {
+  background: #DCFCE7;
+  color: #16a34a;
+}
+.project-status.stable {
+  background: #DBEAFE;
+  color: #2563EB;
+}
+.project-tech span {
+  display: inline-block;
+  background: #F1F5F9;
+  color: #475569;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin: 2px 3px 2px 0;
+}
+
+/* ===== Work Experience Highlights ===== */
+.work-highlights {
+  margin: 15px 0 0 0;
+  padding: 0 0 0 20px;
+  color: #334155;
+}
+.work-highlights li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.work-highlights li strong {
+  color: #1E293B;
+}
+
+/* ===== Email input height fix ===== */
+input[type="email"] {
+  height: 50px;
+}
 body {
-  font-family: "Space Mono", Arial, serif;
+  font-family: "Inter", "Space Mono", Arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
@@ -222,13 +353,13 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-features {
-  background: #F1F5F9;
+  background: #fff;
 }
 #fh5co-features h2 {
   color: #1E293B;
 }
 #fh5co-features .services-padding {
-  padding: 7em 0;
+  padding: 4em 0;
 }
 #fh5co-features .feature-left {
   margin-bottom: 40px;
@@ -245,7 +376,7 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100px;
   height: 100px;
   margin: 0 auto;
-  background: #fff;
+  background: #F1F5F9;
   margin-bottom: 20px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
