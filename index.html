@@ -355,14 +355,9 @@
 									<td style="border-bottom: 1px solid #E2E8F0;">Grafana &middot; Loki &middot; Tempo &middot; Prometheus &middot; Jaeger &middot; OTel Collector</td>
 								</tr>
 								<tr>
-									<td style="border-bottom: 1px solid #E2E8F0;"><a href="https://github.com/vyavasthita/auth-service" target="_blank" style="color: #2563EB; font-weight: bold;">Auth Service</a></td>
-									<td style="border-bottom: 1px solid #E2E8F0;">JWT authentication &amp; RBAC with RS256 signing, JWKS endpoint, session management, and full observability</td>
-									<td style="border-bottom: 1px solid #E2E8F0;">FastAPI &middot; SQLAlchemy &middot; MySQL &middot; RS256/JWKS &middot; Docker</td>
-								</tr>
-								<tr>
-									<td style="border-bottom: 1px solid #E2E8F0;"><a href="https://github.com/vyavasthita/micro-cart" target="_blank" style="color: #2563EB; font-weight: bold;">Micro-Cart</a></td>
-									<td style="border-bottom: 1px solid #E2E8F0;">Microservices e-commerce platform with clean architecture, zero-trust auth, and per-service deployments</td>
-									<td style="border-bottom: 1px solid #E2E8F0;">FastAPI &middot; MySQL &middot; Docker Compose &middot; Repository Pattern</td>
+									<td style="border-bottom: 1px solid #E2E8F0;"><a href="https://github.com/vyavasthita/instrumentation-hub" target="_blank" style="color: #2563EB; font-weight: bold;">Instrumentation Hub</a></td>
+									<td style="border-bottom: 1px solid #E2E8F0;">OpenTelemetry client library &mdash; one function call adds logs, traces, and metrics to any FastAPI service</td>
+									<td style="border-bottom: 1px solid #E2E8F0;">OpenTelemetry &middot; OTLP &middot; FastAPI &middot; Middleware</td>
 								</tr>
 								<tr>
 									<td style="border-bottom: 1px solid #E2E8F0;"><a href="https://github.com/vyavasthita/token-validator" target="_blank" style="color: #2563EB; font-weight: bold;">Token Validator</a></td>
@@ -370,9 +365,14 @@
 									<td style="border-bottom: 1px solid #E2E8F0;">Python &middot; RS256 &middot; JWKS &middot; Async &middot; PyJWT</td>
 								</tr>
 								<tr>
-									<td><a href="https://github.com/vyavasthita/instrumentation-hub" target="_blank" style="color: #2563EB; font-weight: bold;">Instrumentation Hub</a></td>
-									<td>OpenTelemetry client library &mdash; one function call adds logs, traces, and metrics to any FastAPI service</td>
-									<td>OpenTelemetry &middot; OTLP &middot; FastAPI &middot; Middleware</td>
+									<td style="border-bottom: 1px solid #E2E8F0;"><a href="https://github.com/vyavasthita/auth-service" target="_blank" style="color: #2563EB; font-weight: bold;">Auth Service</a></td>
+									<td style="border-bottom: 1px solid #E2E8F0;">JWT authentication &amp; RBAC with RS256 signing, JWKS endpoint, session management, and full observability</td>
+									<td style="border-bottom: 1px solid #E2E8F0;">FastAPI &middot; SQLAlchemy &middot; MySQL &middot; RS256/JWKS &middot; Docker</td>
+								</tr>
+								<tr>
+									<td><a href="https://github.com/vyavasthita/micro-cart" target="_blank" style="color: #2563EB; font-weight: bold;">Micro-Cart</a></td>
+									<td>Microservices e-commerce platform with clean architecture, zero-trust auth, and per-service deployments</td>
+									<td>FastAPI &middot; MySQL &middot; Docker Compose &middot; Repository Pattern</td>
 								</tr>
 							</tbody>
 						</table>
@@ -505,7 +505,7 @@
 					if (data.success) {
 						statusDiv.style.display = 'block';
 						statusDiv.style.color = '#16a34a';
-						statusDiv.textContent = 'Thank you! Your message has been sent.';
+						statusDiv.textContent = 'Thanks for reaching out! I have received your message and will get back to you soon.';
 						form.reset();
 					} else {
 						statusDiv.style.display = 'block';
