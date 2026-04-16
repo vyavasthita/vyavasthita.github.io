@@ -426,8 +426,10 @@
 			</div>
 			<div class="choose animate-box">
 				<h2>Contact</h2>
-				<form id="contact-form" action="https://formspree.io/f/xyyarqro" method="POST">
+				<form id="contact-form" action="https://formsubmit.co/ajax/dilipblr25@gmail.com" method="POST">
 					<input type="hidden" name="_subject" value="New message from your portfolio site">
+					<input type="hidden" name="_captcha" value="false">
+					<input type="hidden" name="_template" value="table">
 					<div class="row form-group">
 						<div class="col-md-6">
 							<input type="text" id="fname" class="form-control" placeholder="Your Name" name="name" required>
@@ -498,7 +500,9 @@
 					body: data,
 					headers: { 'Accept': 'application/json' }
 				}).then(function(response) {
-					if (response.ok) {
+					return response.json();
+				}).then(function(data) {
+					if (data.success) {
 						statusDiv.style.display = 'block';
 						statusDiv.style.color = '#16a34a';
 						statusDiv.textContent = 'Thank you! Your message has been sent.';
@@ -506,7 +510,7 @@
 					} else {
 						statusDiv.style.display = 'block';
 						statusDiv.style.color = '#dc2626';
-						statusDiv.textContent = 'Oops! Something went wrong. Please try again.';
+						statusDiv.textContent = data.message || 'Oops! Something went wrong. Please try again.';
 					}
 				}).catch(function() {
 					statusDiv.style.display = 'block';
